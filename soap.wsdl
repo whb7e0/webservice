@@ -7,7 +7,7 @@
 <output message="tns:getDbPersonResponse" />
 </operation>
 </portType>
-<binding name="EncryptServicePortBinding" type="tns:JumpService">
+<binding name="JumpServicePortBinding" type="tns:JumpService">
 <soap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http" />
 <operation name="getDbPerson">
 <soap:operation soapAction="urn:JumpService#JumpService#getDbPerson" />
@@ -19,7 +19,7 @@
 </operation>
 </binding>
 <service name="JumpService">
-<port name="JumpServicePort" binding="tns:JumpServicePortBinding"><soap:address location="http://localhost/soap_demo/jump.php" />
+<port name="JumpServicePort" binding="tns:JumpServicePortBinding"><soap:address location="http://localhost/webservice/JumpService/servicev2.php" />
 </port>
 </service>
 <message name="getDbPersonRequest">
