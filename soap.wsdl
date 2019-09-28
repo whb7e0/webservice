@@ -1,0 +1,31 @@
+<?xml version="1.0" ?>
+<definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://localhost" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.xmlsoap.org/wsdl/" targetNamespace="http://localhost" name="JumpService">
+<types/>
+<portType name="JumpService">
+<operation name="getDbPerson">
+<input message="tns:getDbPersonRequest" />
+<output message="tns:getDbPersonResponse" />
+</operation>
+</portType>
+<binding name="EncryptServicePortBinding" type="tns:JumpService">
+<soap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http" />
+<operation name="getDbPerson">
+<soap:operation soapAction="urn:JumpService#JumpService#getDbPerson" />
+<input><soap:body use="encoded" namespace="urn:JumpService" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+</input>
+<output>
+<soap:body use="encoded" namespace="urn:JumpService" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+</output>
+</operation>
+</binding>
+<service name="JumpService">
+<port name="JumpServicePort" binding="tns:JumpServicePortBinding"><soap:address location="http://localhost/soap_demo/jump.php" />
+</port>
+</service>
+<message name="getDbPersonRequest">
+<part name="id" type="xsd:int" />
+</message>
+<message name="getDbPersonResponse">
+<part name="return" type="xsd:string" />
+</message>
+</definitions>
